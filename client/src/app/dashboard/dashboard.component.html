@@ -1,0 +1,33 @@
+<div class="container">
+    <nav>
+      <div class="navbar-right"> 
+         <a  [routerLink]="['/create']">Create a New Poll</a>
+         <a  [routerLink]="['/logout']">Logout</a>
+      </div> 
+    </nav>
+    <div class="main">
+      <div class="search">
+        <input type="text" placeholder="search">
+      </div>
+      <div>
+        <table class="table">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Survey Question</th>
+                <th>Date Posted</th>
+                <th>Action</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor = "let question of questions">
+                <td>{{question.username}}</td>
+                <td><a [routerLink]="[question._id]">{{question.question}}</a></td>
+                <td>{{question['createdAt'] | date:"medium"}}</td>
+                <td><button (click)="onDelete(question)" [hidden]="loggedUser != question.username" >Delete</button></td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+    </div>
+  </div>

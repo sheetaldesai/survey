@@ -1,0 +1,41 @@
+<div class="container">
+  <nav>
+      <ul class="nav navbar-nav navbar-right">
+          <li><a [routerLink]="['/dashboard']">Goto Polls</a></li>
+        </ul>
+  </nav>
+<h1>{{question['question']}}</h1>
+<p>Click the vote button to choose one</p>
+<table class="table">
+  <thead class="thead-dark">
+  <tr scope="row">
+    <th>Option</th>
+    <th>Current count of votes</th>
+    <th>Action</th>
+  </tr>
+  </thead>
+
+  <tr *ngFor = "let option of options">
+    
+    <td>{{option['text']}}</td>
+    <td>{{option['votes']}}</td>
+    <td><button (click)="onVote(option)">Vote</button></td>
+  </tr>
+  <!--<tr>
+    <td>{{question.option2.text}}</td>
+    <td>{{question.option2.votes}}</td>
+    <td><button (click)="onVote(option2)">Vote</button></td>
+  </tr>
+  <tr>
+    <td>{{question.option3.text}}</td>
+    <td>{{question.option3.votes}}</td>
+    <td><button (click)="onVote(option3)">Vote</button></td>
+  </tr>
+  <tr>
+    <td>{{question.option4.text}}</td>
+    <td>{{question.option4.votes}}</td>
+    <td><button (click)="onVote(option4)">Vote</button></td>
+  </tr>-->
+</table>
+</div>
+
